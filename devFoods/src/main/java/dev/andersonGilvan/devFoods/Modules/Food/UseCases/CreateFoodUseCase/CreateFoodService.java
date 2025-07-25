@@ -2,6 +2,7 @@ package dev.andersonGilvan.devFoods.Modules.Food.UseCases.CreateFoodUseCase;
 
 
 import dev.andersonGilvan.devFoods.Modules.Food.DTO.CreateFoodDTO;
+import dev.andersonGilvan.devFoods.Modules.Food.DTO.ListFoodDTO;
 import dev.andersonGilvan.devFoods.Modules.Food.Model.FoodModel;
 import dev.andersonGilvan.devFoods.Modules.Food.Repository.FoodRepository;
 import org.springframework.stereotype.Service;
@@ -15,9 +16,13 @@ public class CreateFoodService {
         this.foodRepository = foodRepository;
     }
 
-    public void create(CreateFoodDTO createFoodDTO) {
+    public ListFoodDTO create(CreateFoodDTO createFoodDTO) {
 
-        this.foodRepository.save(new FoodModel(createFoodDTO));
+        var newFood = new FoodModel(createFoodDTO);
+        this.foodRepository.save(newFood);
+
+
+        return new ListFoodDTO(newFood);
 
     }
 
