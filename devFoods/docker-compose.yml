@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    container_name: postgres_db
+    ports:
+      - '5432:5432'
+
+    environment:
+      POSTGRES_USER:  admin
+      POSTGRES_PASSWORD:  docker
+      POSTGRES_DB:  dv_food_db
