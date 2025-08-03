@@ -12,10 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/food")
 public class CreateFoodController {
 
+    private CreateFoodService service;
+
+    public CreateFoodController(CreateFoodService service) {
+        this.service = service;
+    }
 
     @PostMapping
     public void createFood(@RequestBody @Valid CreateFoodDTO dto) {
-        System.out.println(dto);
+
+        this.service.createFood(dto);
+
     }
 
 }

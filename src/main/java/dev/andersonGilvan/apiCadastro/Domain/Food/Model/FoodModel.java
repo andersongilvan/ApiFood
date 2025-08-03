@@ -2,6 +2,7 @@ package dev.andersonGilvan.apiCadastro.Domain.Food.Model;
 
 
 import dev.andersonGilvan.apiCadastro.Domain.Food.DTO.CreateFoodDTO;
+import dev.andersonGilvan.apiCadastro.Domain.Food.DTO.UpdateFoodDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,4 +41,12 @@ public class FoodModel {
         this.description = dto.description();
         this.price = dto.price();
     }
+
+    public void UpdateFood(UpdateFoodDto dto) {
+        this.name = dto.name();
+        this.imgUrl = dto.imgUrl();
+        this.description = dto.description();
+        this.price = dto.price();
+    }
+
 }
