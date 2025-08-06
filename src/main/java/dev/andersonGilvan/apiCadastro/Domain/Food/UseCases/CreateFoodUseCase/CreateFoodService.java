@@ -2,6 +2,7 @@ package dev.andersonGilvan.apiCadastro.Domain.Food.UseCases.CreateFoodUseCase;
 
 
 import dev.andersonGilvan.apiCadastro.Domain.Food.DTO.CreateFoodDTO;
+import dev.andersonGilvan.apiCadastro.Domain.Food.DTO.ListFoodDTO;
 import dev.andersonGilvan.apiCadastro.Domain.Food.Model.FoodModel;
 import dev.andersonGilvan.apiCadastro.Domain.Food.Repository.FoodRepository;
 import org.springframework.stereotype.Service;
@@ -15,11 +16,11 @@ public class CreateFoodService {
         this.repository = repository;
     }
 
-    public void createFood(CreateFoodDTO dto) {
+    public FoodModel createFood(CreateFoodDTO dto) {
 
         var food = new FoodModel(dto);
 
-        this.repository.save(food);
+       return this.repository.save(food);
 
     }
 
